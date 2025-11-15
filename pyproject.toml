@@ -8,7 +8,7 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi-opinionated-core @ file:///home/zarnuji/project/my-framework/fastapi-opinionated-core"
+    "fastapi-opinionated-core (>=0.1.2,<0.2.0)"
 ]
 packages = [
     { include = "fastapi_opinionated_eventbus" }
@@ -20,4 +20,7 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
-fastapi-opinionated-core = {develop = true}
+
+[tool.poetry.group.dev.dependencies]
+twine = "^6.2.0"
+
