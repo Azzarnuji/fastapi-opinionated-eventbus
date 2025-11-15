@@ -9,8 +9,6 @@ from fastapi_opinionated.registry.plugin_store import PluginRegistryStore
 from fastapi_opinionated.registry.plugin import PluginRegistry
 logger = ns_logger("EventBus")
 
-
-
 class _EventBus:
     @staticmethod
     async def emit(event_name: str, /, *args, **kwargs):
@@ -32,14 +30,16 @@ class _EventBus:
                 await asyncio.gather(*tasks)
         except Exception as e:
             traceback.print_exc()
-            raise PluginException("EventBusPlugin", f"Error emitting event '{event_name}': {e}") from e
+            raise PluginException(EventBusPlugin.public_name, f"Error emitting event '{event_name}': {e}") from e
         
 def eventbus_api()->_EventBus:
-    PluginRegistry.ensure_enabled("eventbus")
+    from fastapi_opinionated_eventbus.plugin import EventBusPlugin
+    PluginRegistry.ensure_enabled(EventBusPlugin.public_name)
     return App.plugin.eventbus
 
 def OnInternalEvent(event_name: str):
     from fastapi_opinionated_eventbus.plugin import EventBusPlugin
+    PluginRegistry.ensure_enabled(EventBusPlugin.public_name)
     def wrapper(func):
         PluginRegistryStore.add(EventBusPlugin.public_name, "internal_event_handlers", {
             "event": event_name,
