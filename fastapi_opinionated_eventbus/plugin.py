@@ -27,11 +27,13 @@ class EventBusPlugin(BasePlugin):
         self._handlers = PluginRegistryStore.get(self.public_name).get("internal_event_handlers", [])
         for h in self._handlers:
             logger.info(f"Registered handler for event '{h['event']}'")
+        _EventBus._handlers = self._handlers
+        self._handlers = {}
 
     def on_ready(self, app, fastapi_app, plugin_api):
         pass
     
     def on_shutdown(self, app, fastapi_app, plugin_api):
-        self._handlers.clear()
+        _EventBus._handlers.clear()
 
 

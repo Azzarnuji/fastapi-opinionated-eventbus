@@ -279,14 +279,14 @@ files = [
 
 [[package]]
 name = "click"
-version = "8.3.0"
+version = "8.3.1"
 description = "Composable command line interface toolkit"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "click-8.3.0-py3-none-any.whl", hash = "sha256:9b9f285302c6e3064f4330c05f05b81945b2a39544279343e6e7c5f27a9baddc"},
-    {file = "click-8.3.0.tar.gz", hash = "sha256:e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"},
+    {file = "click-8.3.1-py3-none-any.whl", hash = "sha256:981153a64e25f12d547d3426c367a4857371575ee7ad18df2a6183ab0545b2a6"},
+    {file = "click-8.3.1.tar.gz", hash = "sha256:12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"},
 ]
 
 [package.dependencies]
@@ -520,13 +520,17 @@ description = ""
 optional = false
 python-versions = ">=3.12"
 groups = ["main"]
-files = [
-    {file = "fastapi_opinionated_core-0.1.2-py3-none-any.whl", hash = "sha256:9f0ab3112574e6c6fd3e4c1716ad9db75ed6ebd9f984bcf98fd750c98b170622"},
-    {file = "fastapi_opinionated_core-0.1.2.tar.gz", hash = "sha256:e96fb900edd1974645939ffa6d2dca71f56be34d8e6df63420fe4e9ce0043b94"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 fastapi = {version = ">=0.121.1,<0.122.0", extras = ["all"]}
+
+[package.source]
+type = "git"
+url = "https://github.com/Azzarnuji/fastapi-opinionated-core.git"
+reference = "HEAD"
+resolved_reference = "1637a3ce410a1ed7dace834c1f3c781cdd81ea4b"
 
 [[package]]
 name = "h11"
@@ -2335,4 +2339,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "050dbbad130c6932ab719db0d36d8f61bdf949a734fae5624fb9806ad604c30f"
+content-hash = "6729d45c763fdbc29e900676156ecfd0b9b09b96994d0f5ff1a2f6b9e6b6a4bc"
